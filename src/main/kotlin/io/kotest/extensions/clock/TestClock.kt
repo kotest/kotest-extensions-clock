@@ -29,13 +29,13 @@ class TestClock(
     * Adds the given [duration] from the instant in this test clock.
     */
    operator fun plus(duration: Duration) {
-      this.instant = instant.plusMillis(duration.inWholeMilliseconds)
+      setInstant(instant.plusMillis(duration.inWholeMilliseconds))
    }
 
    /**
     * Removes the given [duration] from the instant in this test clock.
     */
    operator fun minus(duration: Duration) {
-      this.instant = instant.minusMillis(duration.inWholeMilliseconds)
+      setInstant(instant.minusMillis(duration.inWholeMilliseconds))
    }
 }
