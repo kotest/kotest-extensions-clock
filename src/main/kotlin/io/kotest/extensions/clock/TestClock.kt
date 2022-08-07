@@ -5,6 +5,9 @@ import java.time.Instant
 import java.time.ZoneId
 import kotlin.time.Duration
 
+/**
+ * A mutable [Clock] that supports millisecond precision.
+ */
 class TestClock(
    private var instant: Instant,
    private val zone: ZoneId,
