@@ -1,0 +1,8 @@
+[versions]
+kotest = "5.3.2"
+
+[libraries]
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-framework-api = { module = "io.kotest:kotest-framework-api", version.ref = "kotest" }
+kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
