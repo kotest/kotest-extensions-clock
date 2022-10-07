@@ -7,6 +7,8 @@ import kotlin.time.Duration
 
 /**
  * A mutable [Clock] that supports millisecond precision.
+ *
+ * The clock is fixed until it is mutated using [plus], [plusAssign], [minus], [minusAssign].
  */
 class TestClock(
    private var instant: Instant,
@@ -22,23 +24,45 @@ class TestClock(
    override fun getZone(): ZoneId = zone
 
    /**
-    * Sets the instant in this test clock to the given value.
+    * Sets the [instant] in this test clock to the given value.
     */
    fun setInstant(instant: Instant) {
       this.instant = instant
    }
 
    /**
+    * Creates a new instance with the given [duration] added from the [instant].
+    *
+    * The current instance is unaffected.
+    */
+   operator fun plus(duration: Duration): TestClock =
+      TestClock(
+         instant = instant + duration,
+         zone = zone,
+      )
+
+   /**
     * Adds the given [duration] from the instant in this test clock.
     */
-   operator fun plus(duration: Duration) {
-      setInstant(instant.plusMillis(duration.inWholeMilliseconds))
+   operator fun plusAssign(duration: Duration) {
+      setInstant(instant + duration)
    }
 
    /**
-    * Removes the given [duration] from the instant in this test clock.
+    * Creates a new instance with the given [duration] removed from the [instant].
+    *
+    * The current instance is unaffected.
     */
-   operator fun minus(duration: Duration) {
-      setInstant(instant.minusMillis(duration.inWholeMilliseconds))
+   operator fun minus(duration: Duration): TestClock =
+      TestClock(
+         instant = instant - duration,
+         zone = zone,
+      )
+
+   /**
+    * Removes the given [duration] from the [instant] in this test clock.
+    */
+   operator fun minusAssign(duration: Duration) {
+      setInstant(instant - duration)
    }
 }

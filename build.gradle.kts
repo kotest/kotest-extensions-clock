@@ -1,4 +1,5 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
    id("kotest-publishing-conventions")
@@ -9,10 +10,12 @@ group = "io.kotest.extensions"
 version = Ci.version
 
 dependencies {
-   implementation(libs.kotest.framework.api)
-   implementation(libs.kotest.framework.engine)
+   testImplementation(platform(libs.kotest.bom))
+   testImplementation(libs.kotest.framework.api)
+   testImplementation(libs.kotest.framework.engine)
    testImplementation(libs.kotest.assertions.core)
    testImplementation(libs.kotest.runner.junit5)
+   testImplementation(libs.kotest.property)
 }
 
 tasks.named<Test>("test") {
@@ -24,8 +27,13 @@ tasks.named<Test>("test") {
    }
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-   kotlinOptions.jvmTarget = "11"
+tasks.withType<KotlinCompile>().configureEach {
+   kotlinOptions {
+      jvmTarget = "11"
+      this.freeCompilerArgs += listOf(
+         "-opt-in=kotlin.time.ExperimentalTime",
+      )
+   }
 }
 
 repositories {

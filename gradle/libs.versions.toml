@@ -1,8 +1,11 @@
 [versions]
-kotest = "5.4.1"
+
+kotest = "5.5.0"
 
 [libraries]
-kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
-kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
-kotest-framework-api = { module = "io.kotest:kotest-framework-api", version.ref = "kotest" }
-kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
+kotest-bom = { module = "io.kotest:kotest-bom", version.ref = "kotest" }
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core" }
+kotest-framework-api = { module = "io.kotest:kotest-framework-api" }
+kotest-framework-engine = { module = "io.kotest:kotest-framework-engine" }
+kotest-property = { module = "io.kotest:kotest-property" }
