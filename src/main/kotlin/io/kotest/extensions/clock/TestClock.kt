@@ -9,8 +9,8 @@ import kotlin.time.Duration
  * A mutable [Clock] that supports millisecond precision.
  */
 class TestClock(
-   private var instant: Instant,
-   private val zone: ZoneId,
+   private var instant: Instant = Instant.now(),
+   private val zone: ZoneId = ZoneId.systemDefault(),
 ) : Clock() {
 
    override fun instant(): Instant = instant
