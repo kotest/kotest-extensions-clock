@@ -30,7 +30,7 @@ publishing {
    repositories {
       maven {
          val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-         val snapshotsRepoUrl = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+         val snapshotsRepoUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
          name = "deploy"
          url = if (Ci.isRelease) releasesRepoUrl else snapshotsRepoUrl
          credentials {
@@ -44,14 +44,14 @@ publishing {
       register("mavenJava", MavenPublication::class) {
          from(components["java"])
          pom {
-            name.set("kotest-extensions-clock")
-            description.set("Kotest Extension for Java time Clocks")
-            url.set("http://www.github.com/kotest/kotest-extensions-clock")
+            name.set("kotest-extensions-ktor-openapi")
+            description.set("Kotest extension for generating open-API docs")
+            url.set("https://www.github.com/kotest/kotest-extensions-ktor-openapi")
 
             scm {
-               connection.set("scm:git:http://www.github.com/kotest/kotest-extensions-clock")
+               connection.set("scm:git:http://www.github.com/kotest/kotest-extensions-ktor-openapi")
                developerConnection.set("scm:git:http://github.com/sksamuel")
-               url.set("http://www.github.com/kotest/kotest-extensions-clock")
+               url.set("https://www.github.com/kotest/kotest-extensions-ktor-openapi")
             }
 
             licenses {
