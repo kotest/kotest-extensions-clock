@@ -2,7 +2,7 @@
 
 A JVM based mutable Clock implementation used for testing that supports millisecond precision.
 
-See [docs](https://kotest.io/docs/extensions/clock.html).
+See [docs](https://kotest.io/docs/extensions/test_clock.html).
 
 Please create issues on the main kotest [board](https://github.com/kotest/kotest/issues).
 
