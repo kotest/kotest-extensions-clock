@@ -2,7 +2,7 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
    id("kotest-publishing-conventions")
-   kotlin("jvm") version "1.8.22"
+   kotlin("jvm") version "1.9.10"
 }
 
 group = "io.kotest.extensions"
