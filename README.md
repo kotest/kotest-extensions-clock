@@ -1,5 +1,7 @@
 # kotest-extensions-clock
 
+### Note: This module has migrated to the main kotest repo. 
+
 A JVM based mutable Clock implementation used for testing that supports millisecond precision.
 
 See [docs](https://kotest.io/docs/extensions/test_clock.html).
